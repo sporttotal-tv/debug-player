@@ -1,6 +1,5 @@
 jwplayer("jw-player").setup({
-  file:
-    "https://d13pvhu6cxt9ia.cloudfront.net/RECORD/0_hd_hls.m3u8?hlsid=HTTP_ID_1",
+  file: getStream(),
   aspectratio: "16:9",
   liveTimeout: 90,
   advertising: {
