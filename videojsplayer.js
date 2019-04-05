@@ -17,9 +17,9 @@ const player = videojs("vjs-player", options, function onPlayerReady() {
   });
 });
 
+player.ima(options);
+
 player.src({
   src: getStream(),
   type: "application/x-mpegURL"
 });
-
-player.ima(options);
