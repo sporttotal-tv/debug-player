@@ -28,8 +28,6 @@ for example
 const stream = "https://content.jwplatform.com/manifests/yp34SRmf.m3u8";`
 ```
 
-Here's a stream that always works: [https://content.jwplatform.com/manifests/yp34SRmf.m3u8](https://content.jwplatform.com/manifests/yp34SRmf.m3u8)
-
 # Video.js
 
 There's also a video.js player in here to proof that the issue is actually only in jwplayer. The sporttotal.tv website however relies on jwplayer atm.
