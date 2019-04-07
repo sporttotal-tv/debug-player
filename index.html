@@ -8,14 +8,34 @@
 </head>
 
 <body>
-  <h1>jwplayer</h1>
+  <h1>STREAM TESTER</h1>
+  <p>
+    This will load the 1st active soccer game from sporttotal.tv, as long as
+    ther is a live game in progress. The players will error, if there is no
+    active live stream at the moment. You can also provide your own live stream
+    in the input field:
+  </p>
+  <input
+    id="customstream"
+    type="text"
+    placeholder="Your stream url (m3u8)"
+    width="600"
+  />
+  <button id="submitCustomStream">Load custom</button>
+  <button id="loadActive">Load 1st soccer game again</button>
+
+  <h2>jwplayer</h2>
   <div id="jw-player"></div>
 
   <hr />
   <hr />
   <hr />
 
-  <h1>video.js</h1>
+  <h2>video.js</h2>
+  <p>
+    Pls note that changing the source will only work for jwplayer above, not for
+    this video.js element...
+  </p>
   <video id="vjs-player" class="video-js"></video>
 
   <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
