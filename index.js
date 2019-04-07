@@ -17,6 +17,7 @@ const getCustomStream = function() {
 };
 
 const getActive = async function() {
+  document.getElementById("customstream").value = null;
   setupPlayers(null);
 };
 
