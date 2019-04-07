@@ -1,11 +1,15 @@
 import { setupVideojs } from "./modules/videojsplayer.js";
 import { setupJwplayer } from "./modules/jwplayer.js";
-import { getStreamUrl } from "./modules/stream.js";
+import { getStreamUrlFromAPI } from "./modules/stream.js";
 
-const setupPlayers = async function(streamSrc = null) {
-  const streamToPlay = await getStreamUrl(streamSrc);
-  setupJwplayer(streamToPlay);
-  setupVideojs(streamToPlay);
+const setupPlayers = async function(
+  streamSrc = "https://content.jwplatform.com/manifests/yp34SRmf.m3u8"
+) {
+  if (!streamSrc) {
+    streamSrc = await getStreamUrlFromAPI();
+  }
+  setupJwplayer(streamSrc);
+  setupVideojs(streamSrc);
 };
 
 const getCustomStream = function() {
