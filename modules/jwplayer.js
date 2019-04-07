@@ -1,4 +1,4 @@
-const jwinit = function(media) {
+export const setupJwplayer = function(media) {
   jwplayer("jw-player").setup({
     file: media,
     aspectratio: "16:9",
@@ -17,7 +17,3 @@ const jwinit = function(media) {
     }
   });
 };
-
-const jwsource = (async function() {
-  jwinit(await getStream());
-})();

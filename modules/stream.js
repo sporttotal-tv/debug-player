@@ -1,4 +1,4 @@
-const getStream = async function() {
+export const getStreamUrl = async function() {
   let stream = undefined;
   if (!stream) {
     let response = await fetch(

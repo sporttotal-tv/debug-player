@@ -1,4 +1,4 @@
-const vjsInit = function(media) {
+export const setupVideojs = function(media) {
   const options = {
     controls: true,
     autoplay: false,
@@ -25,7 +25,3 @@ const vjsInit = function(media) {
     type: "application/x-mpegURL"
   });
 };
-
-const videoSrc = (async function() {
-  vjsInit(await getStream());
-})();
