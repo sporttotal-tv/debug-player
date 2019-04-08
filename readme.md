@@ -4,7 +4,13 @@
 
 ## Update April 8th
 
-We discovered that `livetimeout: 0` improves the situation slightly - but doesn't solve it. After a few seconds, the player will render the loading spinner on top of the video, without throwing an error (see the error handling in `modules/jwplayer.js`).
+We discovered the following behaviour by experimenting with `livetimeout`:
+
+| value                     | behaviour                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `livetimeout: 90`         | Our default. Causes error 230001 to happen in 90% right after the ad. Other values as 30 or 15 produce the same result                                        |
+| `livetimeout: 0`          | Plays the stream for ~10s, then a loading spinner appears. Can be dismissed by clicking on `LIVE` next to the volume controls, but appears almost immediately |
+| no `livetimeout` in setup | Plays the stream for about ~10s, then shows a loading spinner for ~1 .. 2 seconds, and then displays Error 230001                                             |
 
 From the documentation:
 

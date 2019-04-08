@@ -2,7 +2,7 @@ export const setupJwplayer = function(media) {
   jwplayer("jw-player").setup({
     file: media,
     aspectratio: "16:9",
-    liveTimeout: 0,
+    liveTimeout: 90,
     advertising: {
       client: "googima",
       vpaidmode: "insecure",
