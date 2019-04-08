@@ -16,4 +16,8 @@ export const setupJwplayer = function(media) {
       }
     }
   });
+
+  jwplayer().on("error", error => {
+    console.log(error);
+  });
 };
