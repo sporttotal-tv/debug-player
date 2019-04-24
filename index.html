@@ -47,6 +47,15 @@
   <script src="deps/videojs-contrib-ads/videojs.ads.min.js"></script>
   <script src="deps/videojs-ima/videojs.ima.min.js"></script>
   <!-- <script src="https://cdn.jwplayer.com/libraries/kwMgMgdc.js"></script> -->
+  <script>
+    if (window.localStorage) {
+      try {
+        window.localStorage.clear()
+        console.info('cleared localStorage')
+      } catch (e) {
 
+      }
+    }
+  </script>
   <script type="module" src="index.js"></script>
 </body>
