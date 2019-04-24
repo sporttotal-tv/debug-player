@@ -5,8 +5,10 @@ export const setupVideojs = function(media) {
     autoplay: false,
     preload: "none",
     liveui: true,
-    hls: {
-      overrideNative: true
+    html5: {
+      hls: {
+        overrideNative: true
+      }
     }
   };
 
@@ -29,38 +31,38 @@ export const setupVideojs = function(media) {
     overrideNative: true
   });
 
-  const enableCustomLiveEdge = function() {
-    if (player.currentTime() > 1) {
-      // pixellot live stream hack - mobile browsers otherwise don't think it's a live stream...
-      // in this case we have to seek shortly before the liveEdge (otherwise the player assumes)
-      // that the stream is over, then play, and then overwrite the seekToLiveEdge() function with
-      // our own...
-      if (!player.liveTracker.isLive()) {
-        const playMeAfterSeeking = function() {
-          console.log(
-            "I seeked almost to the live edge and will now try to play"
-          );
-          setTimeout(function() {
-            player.play();
-          }, 1000);
-        };
-        const seekToPixellotLiveEdge = function() {
-          player.liveTracker.startTracking();
-          player.pause();
-          player.currentTime(player.liveTracker.seekableEnd() - 1);
-          player.one("canplay", playMeAfterSeeking);
-        };
-        player.liveTracker.seekToLiveEdge = seekToPixellotLiveEdge;
-        const liveUi = document.getElementsByClassName(
-          "vjs-seek-to-live-control"
-        )[0];
-        liveUi.style["display"] = "block";
-      }
-      player.off("timeupdate", enableCustomLiveEdge);
-    }
-  };
-
-  player.on("timeupdate", enableCustomLiveEdge);
+  // const enableCustomLiveEdge = function() {
+  //   if (player.currentTime() > 1) {
+  //     // pixellot live stream hack - mobile browsers otherwise don't think it's a live stream...
+  //     // in this case we have to seek shortly before the liveEdge (otherwise the player assumes)
+  //     // that the stream is over, then play, and then overwrite the seekToLiveEdge() function with
+  //     // our own...
+  //     if (!player.liveTracker.isLive()) {
+  //       const playMeAfterSeeking = function() {
+  //         console.log(
+  //           "I seeked almost to the live edge and will now try to play"
+  //         );
+  //         setTimeout(function() {
+  //           player.play();
+  //         }, 1000);
+  //       };
+  //       const seekToPixellotLiveEdge = function() {
+  //         player.liveTracker.startTracking();
+  //         player.pause();
+  //         player.currentTime(player.liveTracker.seekableEnd() - 1);
+  //         player.one("canplay", playMeAfterSeeking);
+  //       };
+  //       player.liveTracker.seekToLiveEdge = seekToPixellotLiveEdge;
+  //       const liveUi = document.getElementsByClassName(
+  //         "vjs-seek-to-live-control"
+  //       )[0];
+  //       liveUi.style["display"] = "block";
+  //     }
+  //     player.off("timeupdate", enableCustomLiveEdge);
+  //   }
+  // };
+  //
+  //player.on("timeupdate", enableCustomLiveEdge);
 
   player.on("timeupdate", function() {
     console.log("current time: " + player.currentTime());
