@@ -9,7 +9,7 @@
 
 <body>
   <h1>STREAM TESTER</h1>
-  <p>
+  <!-- <p>
     This will load the 1st active soccer game from sporttotal.tv, as long as
     ther is a live game in progress. The players will error, if there is no
     active live stream at the moment. You can also provide your own live stream
@@ -20,29 +20,33 @@
     type="text"
     placeholder="Your stream url (m3u8)"
     width="600"
-  />
-  <button id="submitCustomStream">Load custom</button>
-  <button id="loadActive">Load 1st soccer game again</button>
+  /> -->
+  <button id="submitCustomStream" style="display:none">Load custom</button>
+  <button id="loadActive" style="display:none">
+    Load 1st soccer game again
+  </button>
 
-  <h2>jwplayer</h2>
+  <!-- <h2>jwplayer</h2>
   <div id="jw-player"></div>
 
   <hr />
   <hr />
-  <hr />
+  <hr /> -->
 
   <h2>video.js</h2>
-  <p>
+  <!-- <p>
     Pls note that changing the source will only work for jwplayer above, not for
     this video.js element...
-  </p>
-  <video id="vjs-player" class="video-js"></video>
+  </p> -->
+  <div style="display:flex; width: 100%">
+    <video id="vjs-player" class="video-js"></video>
+  </div>
 
   <script src="https://vjs.zencdn.net/7.4.1/video.js"></script>
   <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
   <script src="deps/videojs-contrib-ads/videojs.ads.min.js"></script>
   <script src="deps/videojs-ima/videojs.ima.min.js"></script>
-  <script src="https://cdn.jwplayer.com/libraries/kwMgMgdc.js"></script>
+  <!-- <script src="https://cdn.jwplayer.com/libraries/kwMgMgdc.js"></script> -->
 
   <script type="module" src="index.js"></script>
 </body>

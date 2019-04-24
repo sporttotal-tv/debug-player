@@ -8,7 +8,7 @@ const setupPlayers = async function(
   if (!streamSrc) {
     streamSrc = await getStreamUrlFromAPI();
   }
-  setupJwplayer(streamSrc);
+  //setupJwplayer(streamSrc);
   setupVideojs(streamSrc);
 };
 
@@ -30,4 +30,7 @@ const registerInputHandlers = function() {
 };
 
 registerInputHandlers();
-setupPlayers(null);
+//setupPlayers(null);
+setupPlayers(
+  "https://dptf639cz3dpg.cloudfront.net/RECORD/0_hd_hls.m3u8?hlsid=HTTP_ID_1"
+);
