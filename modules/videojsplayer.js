@@ -35,7 +35,7 @@ export const setupVideojs = function(media) {
       // in this case we have to seek shortly before the liveEdge (otherwise the player assumes)
       // that the stream is over, then play, and then overwrite the seekToLiveEdge() function with
       // our own...
-      if (isMobile && isLive && !player.liveTracker.isLive()) {
+      if (!player.liveTracker.isLive()) {
         const playMeAfterSeeking = function() {
           console.log(
             "I seeked almost to the live edge and will now try to play"
@@ -61,4 +61,8 @@ export const setupVideojs = function(media) {
   };
 
   player.on("timeupdate", enableCustomLiveEdge);
+
+  player.on("timeupdate", function() {
+    console.log("current time: " + player.currentTime());
+  });
 };
